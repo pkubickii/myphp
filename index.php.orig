@@ -1,9 +1,15 @@
 <?php
 session_start();
 $username = $_SESSION["username"];
+<<<<<<< HEAD
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+=======
+//ini_set('display_errors', 1);
+//ini_set('display_startup_errors', 1);
+//error_reporting(E_ALL);
+>>>>>>> f45d99c647056cdf54e484ea390814694f3659ae
 ?>
 <!doctype html>
 <html lang="pl-PL">
@@ -35,7 +41,6 @@ error_reporting(E_ALL);
     <?php if (!isset($username)) { ?>
       <div class="relative overflow-hidden mb-8">
         <div class="rounded-t-lg overflow-hidden border-t border-l border-r border-gray-400 flex justify-center p-8">
-
           <form action="src/php/login.php" method="POST" class="w-full max-w-sm flex flex-col gap-3 border-2 p-10 border-gray-500">
             <div class="flex flex-row">
               <div class="w-1/3">
@@ -45,7 +50,6 @@ error_reporting(E_ALL);
                 <input name="username" id="username" type="text" class="bg-gray-400 appearance-none border-2 border-gray-500 rounded-md w-full py-2 px-4 text-gray-800 leading-tight focus:outline-none focus:bg-white focus:border-amber-700">
               </div>
             </div>
-
             <div class="flex flex-row">
               <div class="w-1/3">
                 <label for="password" class="block text-gray-500 font-bold text-right mb-1 md:mb-0 pr-4">Password: </label>
@@ -61,10 +65,22 @@ error_reporting(E_ALL);
               </div>
             </div>
           </form>
-
         </div>
       </div>
 
+<<<<<<< HEAD
+      <?php if (isset($username)) { ?>
+        <div class="text-center text-4xl text-rose-500">You're logged in as: <?= $username ?></div>
+      <?php }
+      print_r($_SESSION);
+      echo "<br>";
+      echo "session uname: " . $username;
+      echo "<br>";
+      echo "session pname: " . $_SESSION["password"];
+      echo "<br>";
+      ?>
+    </main>
+=======
     <?php } else { ?>
       <div class="p-6 text-xl text-justify">
         <article>
@@ -84,6 +100,7 @@ error_reporting(E_ALL);
               Szesnastkowy kod koloru to 6-symbolowy kod złożony z maksymalnie trzech elementów 2-symbolowych. Każdy z elementów składających się z 2 symboli wyraża wartość koloru od 0 do 255.
             </p>
             <br>
+>>>>>>> f45d99c647056cdf54e484ea390814694f3659ae
 
             <ul class="list-disc ml-24">
               <li>Pierwszy kolor: czerwony (red)</li>
