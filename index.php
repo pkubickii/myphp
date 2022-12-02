@@ -1,6 +1,9 @@
 <?php
 session_start();
 $username = $_SESSION["username"];
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 ?>
 <!doctype html>
 <html>
@@ -60,7 +63,7 @@ $username = $_SESSION["username"];
       <?php }
       print_r($_SESSION);
       echo "<br>";
-      echo "session uname: " . $_SESSION["username"];
+      echo "session uname: " . $username;
       echo "<br>";
       echo "session pname: " . $_SESSION["password"];
       echo "<br>";
