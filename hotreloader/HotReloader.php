@@ -51,7 +51,7 @@ class HotReloader
    */
   private function getWatcherFileURL()
   {
-    return $this->WATCHER_FILE_URL . "?watch=true&reloader_root=" . addslashes(dirname(__DIR__)) . "/";
+    return $this->WATCHER_FILE_URL . "?watch=true&reloader_root=" . addslashes(dirname(__DIR__) . "/");
   }
 
   /**
@@ -96,4 +96,3 @@ class HotReloader
 <?php echo ob_get_clean();
   }
 }
-
