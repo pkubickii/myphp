@@ -24,9 +24,11 @@ error_reporting(E_ALL);
       <?php if (!isset($username)) { ?>
         <button class="h-10 w-28 rounded-md border-2 border-black bg-inherit from-sky-100 to-sky-500 px-2 py-1 text-xl shadow-lg hover:bg-gradient-to-br md:h-16 md:w-auto md:px-6 md:py-2" onclick="handleClick()">Register</button>
       <?php } else { ?>
-        <button class="h-10 w-28 rounded-md border-2 border-black bg-inherit from-sky-100 to-sky-500 px-2 py-1 text-xl shadow-lg hover:bg-gradient-to-br md:h-16 md:w-auto md:px-6 md:py-2" onclick="handleLogout()">
-          <?= $username ?>
-        </button>
+        <a href="src/php/logout.php">
+          <button class="h-10 w-28 rounded-md border-2 border-black bg-inherit from-sky-100 to-sky-500 px-2 py-1 text-xl shadow-lg hover:bg-gradient-to-br md:h-16 md:w-auto md:px-6 md:py-2" onclick="handleLogout()">
+            <?= $username ?>
+          </button>
+        </a>
       <?php } ?>
     </div>
   </nav>
