@@ -16,7 +16,7 @@ error_reporting(E_ALL);
 </head>
 
 <body class="min-h-screen flex flex-col">
-  <nav class="flex flex-wrap items-center justify-between bg-gradient-to-tl from-zinc-200 to-zinc-900 p-3 sm:p-6">
+  <nav class="flex flex-wrap items-center justify-between bg-gradient-to-tl from-zinc-500 to-zinc-900 p-3 md:p-5">
     <div class="p-3 mx-4 w-auto rounded-xl shadow-2xl shadow-zinc-900 cursor-pointer h-2/4 hover:skew-y-3 hover:scale-110 duration-500 bg-yellow-300 text-2xl font-sans inline-block text-violet-700" onclick="handleClick()">
       Last load: <?= date("H:i:s"); ?>
     </div>
@@ -24,13 +24,13 @@ error_reporting(E_ALL);
       <?php if (!isset($username)) { ?>
         <button class="h-10 w-28 rounded-md border-2 border-black bg-inherit from-sky-100 to-sky-500 px-2 py-1 text-xl shadow-lg hover:bg-gradient-to-br md:h-16 md:w-auto md:px-6 md:py-2" onclick="handleClick()">Register</button>
       <?php } else { ?>
-        <button class="h-10 w-28 rounded-md border-2 border-black bg-inherit from-sky-100 to-sky-500 px-2 py-1 text-xl shadow-lg hover:bg-gradient-to-br md:h-16 md:w-auto md:px-6 md:py-2" onclick="handleLogout()">
-          <?= $username ?>
+        <button class="h-10 w-28 rounded-md border-2 border-black bg-inherit from-sky-100 to-sky-500 px-2 py-1 text-xl shadow-lg hover:bg-gradient-to-br md:h-16 md:w-auto md:px-6 md:py-2">
+          <a href="src/php/logout.php"><?= $username ?></a>
         </button>
       <?php } ?>
     </div>
   </nav>
-  <main class="flex-1 bg-gradient-to-br from-zinc-100 to-zinc-800">
+  <main class="flex-1 bg-gradient-to-br from-zinc-500 to-zinc-700">
 
     <?php if (!isset($username)) { ?>
       <div class="relative overflow-hidden mb-8">
@@ -57,7 +57,7 @@ error_reporting(E_ALL);
             <div class="flex flex-row">
               <div class="md:w-1/3"></div>
               <div class="md:w-2/3">
-                <button type="submit" class="border-2 font-sans my-3 px-6 py-2 rounded-md border-none shadow-slate-600 hover:scale-105 hover:shadow-lime-500 shadow-xl hover:border-lime-400 bg-amber-700 text-zinc-300 hover:text-lime-400 text-2xl tracking-widest">Login</button>
+                <button type="submit" class="border-2 font-sans my-3 px-6 py-2 rounded-md border-none shadow-zinc-600 hover:scale-105 hover:shadow-lime-500 shadow-xl hover:border-lime-400 bg-amber-700 text-zinc-300 hover:text-lime-400 text-2xl tracking-widest">Login</button>
               </div>
             </div>
           </form>
@@ -66,72 +66,66 @@ error_reporting(E_ALL);
       </div>
 
     <?php } else { ?>
-      <div class="p-6 text-xl text-justify">
-        <article>
-          <h1 class="p-5 text-3xl text-violet-600 font-sans font-bold">Przewodnik po kolorach w notacji heksadecymalnej.</h1>
-          <br>
-          <p class="ml-10 w-3/4">
-            Kolory szesnastkowe to wizualny język sieci. Jeśli chcesz, aby strona internetowa (lub aplikacja internetowa) wyświetlała określony kolor, podaj jej kod szesnastkowy.
-          </p>
-          <br>
-          <h2 class="p-5 text-2xl text-violet-600 font-sans font-semibold">Co to jest szesnastkowy kod koloru?</h3>
-            <div class="container min-w-full items-center justify-center flex flex-row">
-              <br>
-              <img src="static/hexcolors1.jpg" alt="Przykładowe kolory i ich wartości heksadecymalne" class="flex w-1/2 h-auto py-5">
-            </div>
-            <br>
-            <p class="ml-10 w-3/4">
-              Szesnastkowy kod koloru to 6-symbolowy kod złożony z maksymalnie trzech elementów 2-symbolowych. Każdy z elementów składających się z 2 symboli wyraża wartość koloru od 0 do 255.
-            </p>
-            <br>
+      <article class="p-5 md:w-3/4 text-zinc-100">
+        <h1 class="text-violet-400 font-bold ">Przewodnik po kolorach w notacji heksadecymalnej.</h1>
+        <p class="pl-5">
+          Kolory szesnastkowe to wizualny język sieci. Jeśli chcesz, aby strona internetowa (lub aplikacja internetowa) wyświetlała określony kolor, podaj jej kod szesnastkowy.
+        </p>
+        <h2 class="text-violet-600 font-semibold">Co to jest szesnastkowy kod koloru?</h3>
+          <div class="container mx-auto">
 
-            <ul class="list-disc ml-24">
-              <li>Pierwszy kolor: czerwony (red)</li>
-              <li>Drugi kolor: zielony (green)</li>
-              <li>Trzeci kolor: niebieski (blue)</li>
-            </ul>
-            <br>
-            <h2 class="p-5 text-2xl text-violet-600 font-sans font-semibold">Co to są szesnastkowe kody kolorów?</h3>
-              <br>
-              <p class="ml-10 w-3/4">
-                Szesnastkowe kody kolorów to wartości, które informują wyświetlacz, ile koloru ma pokazać. Wartości to specjalny kod reprezentujący wartości kolorów od 0 do 255.
-              </p>
-              <br>
-              <p class="ml-10 w-3/4">
-                Jeśli czerwony, zielony i niebieski mają wartość minimalną 0 (reprezentowaną w kodzie jako „00”), wyrażonym kolorem jest kolor czarny. Jeśli czerwony, zielony i niebieski mają maksymalnie 255 (reprezentowane w kodzie jako „ff”), wyrażonym kolorem jest kolor biały.
-              </p>
-              <br>
-              <div class="flex flex-row items-center justify-between">
-                <div class="flex flex-col w-2/3">
-                  <h2 class="p-5 text-2xl text-violet-600 font-sans font-semibold">Co to są szesnastkowe kody kolorów?</h2>
-                  <br>
-                  <p class="ml-10 w-3/4">
-                    Szesnastkowe wartości kolorów można łączyć, aby pokazać ponad 16 milionów różnych kolorów. Tak więc, oczywiście, większość będzie gdzieś pomiędzy. Zawsze możesz użyć <a href="#" class="underline text-violet-500 hover:text-blue-700 visited:text-red-500">konwertera, aby przekonwertować wartości liczbowe RGB na kod szesnastkowy.</a>
-                  </p>
-                  <br>
-                  <p class="ml-10 w-3/4">
-                    Jeśli czerwony, zielony i niebieski mają wartość minimalną 0 (reprezentowaną w kodzie jako „00”), wyrażonym kolorem jest kolor czarny. Jeśli czerwony, zielony i niebieski mają maksymalnie 255 (reprezentowane w kodzie jako „ff”), wyrażonym kolorem jest kolor biały.
-                  </p>
-                </div>
-                <div class="flex p-10 w-1/3">
-                  <aside class="flex flex-row-reverse">
-                    <ul class="list-disc">
-                      <li><a href="https://mothereffinghsl.com/" class="underline text-violet-500 hover:text-blue-700 visited:text-violet-500">Strona pokazująca możliwości hsl</a></li>
-                      <li><a href="#" class="underline text-violet-500 hover:text-blue-700 visited:text-violet-500">Portal kolorów świata</a></li>
-                      <li><a href="#" class="underline text-violet-500 hover:text-blue-700 visited:text-violet-500">Więcej informacji o css</a></li>
-                      <li><a href="#" class="underline text-violet-500 hover:text-blue-700 visited:text-violet-500">Informacje dotyczące UX</a></li>
-                      <li><a href="#" class="underline text-violet-500 hover:text-blue-700 visited:text-violet-500">Oh well…</a></li>
-                    </ul>
-                  </aside>
-                </div>
+            <img src="static/hexcolors1.jpg" alt="Przykładowe kolory i ich wartości heksadecymalne" class="mx-auto w-1/2 py-5">
+          </div>
+          <p class="md:w-3/4">
+            Szesnastkowy kod koloru to 6-symbolowy kod złożony z maksymalnie trzech elementów 2-symbolowych. Każdy z elementów składających się z 2 symboli wyraża wartość koloru od 0 do 255.
+          </p>
+
+          <ul class="list-disc list-inside">
+            <li>Pierwszy kolor: czerwony (red)</li>
+            <li>Drugi kolor: zielony (green)</li>
+            <li>Trzeci kolor: niebieski (blue)</li>
+          </ul>
+
+          <h2 class="p-5  text-violet-600 font-sans font-semibold">Co to są szesnastkowe kody kolorów?</h3>
+
+            <p class="ml-10 w-3/4">
+              Szesnastkowe kody kolorów to wartości, które informują wyświetlacz, ile koloru ma pokazać. Wartości to specjalny kod reprezentujący wartości kolorów od 0 do 255.
+            </p>
+
+            <p class="ml-10 w-3/4">
+              Jeśli czerwony, zielony i niebieski mają wartość minimalną 0 (reprezentowaną w kodzie jako „00”), wyrażonym kolorem jest kolor czarny. Jeśli czerwony, zielony i niebieski mają maksymalnie 255 (reprezentowane w kodzie jako „ff”), wyrażonym kolorem jest kolor biały.
+            </p>
+
+            <div class="flex flex-row items-center justify-between">
+              <div class="flex flex-col w-2/3">
+                <h2 class="p-5  text-violet-600 font-sans font-semibold">Co to są szesnastkowe kody kolorów?</h2>
+
+                <p class="ml-10 w-3/4">
+                  Szesnastkowe wartości kolorów można łączyć, aby pokazać ponad 16 milionów różnych kolorów. Tak więc, oczywiście, większość będzie gdzieś pomiędzy. Zawsze możesz użyć <a href="#" class="underline text-violet-500 hover:text-blue-700 visited:text-red-500">konwertera, aby przekonwertować wartości liczbowe RGB na kod szesnastkowy.</a>
+                </p>
+
+                <p class="ml-10 w-3/4">
+                  Jeśli czerwony, zielony i niebieski mają wartość minimalną 0 (reprezentowaną w kodzie jako „00”), wyrażonym kolorem jest kolor czarny. Jeśli czerwony, zielony i niebieski mają maksymalnie 255 (reprezentowane w kodzie jako „ff”), wyrażonym kolorem jest kolor biały.
+                </p>
               </div>
-        </article>
-      </div>
+              <div class="flex p-10 w-1/3">
+                <aside class="flex flex-row-reverse">
+                  <ul class="list-disc">
+                    <li><a href="https://mothereffinghsl.com/" class="underline text-blue-700 hover:text-orange-700 visited:text-blue-700">Prezentacja HSL</a></li>
+                    <li><a href="#" class="underline text-blue-700 hover:text-orange-700 visited:text-blue-700">Portal kolorów świata</a></li>
+                    <li><a href="#" class="underline text-blue-700 hover:text-orange-700 visited:text-blue-700">Więcej informacji o css</a></li>
+                    <li><a href="#" class="underline text-blue-700 hover:text-orange-700 visited:text-blue-700">Informacje dotyczące UX</a></li>
+                    <li><a href="https://css-tricks.com" class="underline text-blue-700 hover:text-orange-700 visited:text-blue-700">Css tricks</a></li>
+                  </ul>
+                </aside>
+              </div>
+            </div>
+      </article>
 
     <?php } ?>
   </main>
 
-  <footer class="p-5 flex flex-wrap items-center justify-center bg-zinc-600">
+  <footer class="p-5 flex flex-wrap items-center justify-center bg-zinc-800">
     <div class="text-xl font-bold text-gray-700">© 2022 Copyright:</div>
     <a class="ml-5 text-gray-900" href="https://github.com/pkubickii" target="_blank" rel="noreferrer">
       pkubicki
